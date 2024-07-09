@@ -265,3 +265,53 @@ button.arCloseModal {
     border: 0;
     margin-bottom: 6px;cursor:pointer;
 }
+/* Modal Styling */
+.arVar_opValue {
+    margin-top: 10px;
+}
+.spOption {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.spVariant_ar {
+    width: 100%;
+}
+.spOption button {
+    width: 100%;
+    border-radius: 0;
+    background: transparent;
+    height: 40px;
+    padding: 0;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;transition:all 0.45s ease-in-out;
+    position: relative;
+}
+.arVarcolor_border {
+    width: 5px;
+    align-self: flex-start;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    border-right: 1px solid #000;z-index:99;
+}
+.arcoloredBorder_Black{
+  background:#000 !important;
+}
+.prvar{transition:all 0.45s ease-in-out;cursor:pointer}
+.arcoloredBorder_White{
+  background:#fff !important
+}
+span.colorBg {
+    display: flex;
+    width: 100%;padding-left:12px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;transition:all 0.75s ease-in-out;
+}
+.arProd_atcBtns{margin-top:50px;}
+.arProd_atcBtns button{
+  width:100%;
+}

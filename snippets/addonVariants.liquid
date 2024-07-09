@@ -1,7 +1,18 @@
+<style>
+  .activeVar_sp{{ section.id }} .colorBg{
+        background: #000 !important;
+    color: #fff;
+  }
+  .normalSelector.activeVar_sp{{ section.id }}{
+    background:#000 !important;
+    color:#fff !important;
+    border:1px solid #000 !important;
+  }
+</style>
 <div class="spVariants spVariantsNew">
   {% for option in product.options_with_values %}
     <div class="arVar_opValue {% if option.name contains 'Color' or option.name contains 'color' or option.name == 'Color' or option.name == 'color'%}arColoSeelct{% endif %}">
-      <div class="arVar_optionName" style="display:none;">
+      <div class="arVar_optionName">
         <span>{{ option.name }}</span>
       </div>
       <div class="spOption spOption{{ forloop.index }}">
@@ -11,23 +22,19 @@
               type="button"
               id="prVariant_{{ section.id }}_{{ option.name | remove: ' ' }}"
               class="
-                {% if option.name == 'Color' or option.name == 'color'or option.name == 'Farbe'  %}arcolor_{{ value }} arColrOption__selector{% endif %}
-                {% if section.settings.round %}roundBtnar{% else %}rectangleBtnar{% endif %}
+                {% if option.name == 'Color' or option.name == 'color' %}arcolor_{{ value }} arColrOption__selector{% else %}normalSelector{% endif %}
                 {% if forloop.first %}activeVar_sp{{ section.id }}{% endif %}
                 prvar arVar_{{ section.id }}_{{product.id}}_{{ option.name | remove: ' ' }}
               "
               data-id="{{- variant.id -}}"
               data-value="{{- value | remove: ' ' -}}"
-              style="background:{{ value | downcase }}; cursor:pointer;"
             >
-              <span
-                style="
-                  {% if option.name == 'Color' or option.name == 'color' or option.name == 'Farbe' %}background:{{ variant.metafields.custom.tbg }};
-                        color:{{ variant.metafields.custom.dots_color }}
-                  {% else %}
-                        background:{{ section.settings.tbg }};
-                        color:{{ section.settings.tclr2 }}
-                  {% endif %}">
+              {% if option.name == 'Color' or option.name == 'color' %}
+              <span class="arVarcolor_border arcoloredBorder_{{ value }}">
+                
+              </span>
+              {% endif %}
+              <span {% if option.name == 'Color' or option.name == 'color' %}class="colorBg"{% endif %}>
                 {{ value }}
               </span>
             </button>
@@ -45,7 +52,7 @@
         data-img="ar{{- product.id -}}{{- variant.featured_media.id -}}"
         data-value="{{ variant.title }}"
         data-compare="{{ variant.compare_at_price | money_without_trailing_zeros }}"
-        data-current="{{ variant.price | plus: priceAr | money_without_trailing_zeros }}"
+        data-current="{{ variant.price| money_without_trailing_zeros }}"
       >
         {{ variant.title }}
       </button>
@@ -110,4 +117,18 @@
         }
       });
     });
+  // Modal Close Function
+  function closeModal(){
+    var modals = document.querySelectorAll('.arProduct_modal');
+  modals.forEach(function(modal) {
+    modal.style.display = 'none';
+  });
+  }
+  function triggerModal(button) {
+  var targetId = button.getAttribute('data-target');
+  var modal = document.getElementById(targetId);
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
 </script>

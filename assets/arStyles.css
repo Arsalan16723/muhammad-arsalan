@@ -186,7 +186,7 @@ h3.arPr_gridTtile {
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50%;cursor:pointer;
 }
 /* Modal Styling */
 .arProduct_modal {
@@ -440,4 +440,52 @@ p.arHeroRte.arMobRte {
     line-height: 120%;
     margin-bottom: 20px;
 }
+}
+/* Button Animations */
+.arBTnBlock a.arheaderBtn{
+  background:#FFF544;position: relative;transition: 0.4s ease;
+  z-index: 1;
+}
+.arBTnBlock a.arheaderBtn:hover{
+  color:#fff;
+}
+.arBTnBlock a.arheaderBtn:before, .arBTnBlock a.arheaderBtn:after {
+  background: #000000;
+  transition: 0.3s ease;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.arBTnBlock a.arheaderBtn:before {
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+}
+.arBTnBlock a.arheaderBtn:hover:before {
+  right: 0;
+}
+/* HeroButton */
+a.arHeroBtn{
+  background:#000;position: relative;transition: 0.4s ease;
+  z-index: 1;
+}
+a.arHeroBtn:hover{
+  color:#000;
+}
+a.arHeroBtn:before, a.arHeroBtn:after {
+  background: #FFF544;
+  transition: 0.3s ease;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+a.arHeroBtn:before {
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+}
+a.arHeroBtn:hover:before {
+  right: 0;
 }

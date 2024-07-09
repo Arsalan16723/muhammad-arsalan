@@ -256,7 +256,7 @@ h3.arPr_gridTtile {
     object-position: center;
 }
 h4.arModal_prTitle {
-    margin-top: 12px;
+    margin-top: 0px;
     margin-bottom: 20px;
     color: #000;
     font-family: Jost;
@@ -518,4 +518,4 @@ a.arHeroBtn:before {
 a.arHeroBtn:hover:before {
   right: 0;
 }
-.arModalInfoInner{text-align:left;}
+.arModalInfoInner, .arVar_optionName{text-align:left;}

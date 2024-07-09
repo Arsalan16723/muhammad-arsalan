@@ -9,7 +9,7 @@
         -%}
              <div class="arPrVariants_addons">
                 {% assign priceAr = product.price %}
-               <div class="arAddonPrice_block">
+               <div class="arAddonPrice_block" style="display:none">
                           <span class="arAddonPRice_heading">Total Set Price:</span>
                           <span class="money arTotalPricing" id="crntPrc_Atc{{ section.id }}{{ product.id }}">
                             {% assign total = product.price | plus: product.price %}

@@ -1,0 +1,61 @@
+<section class="arhero_section">
+    <div class="arHero_inner">
+        <div class="arHeroBanner">
+            <img src="{{section.settings.image |  image_url: width: '2000x'}}" alt="{{section.settings.image.alt}}" width="" height="">
+            <div class="arHeroInfo">
+              <div class="arHeroInfoInner">
+                <div class="arHero_content">
+                    <h1 class="arHeroTitle">{{section.settings.title}}</h1>
+                    <p class="arHeroRte">{{section.settings.text}}</p>
+                    <a href="{{section.settings.link}}">{{section.settings.label}}</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema  %} 
+{
+    "name": "ar Hero",
+    "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "The Gift Guide"
+        }
+        {
+            "type": "inline_richtext",
+            "id": "text",
+            "label": "Rich Text",
+            "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+        },
+        {
+           "type": "url",
+           "id": "link",
+           "label": "Button Link" 
+        },
+        {
+            "type": "text",
+            "id": "label",
+            "label": "Button Label",
+            "default": "Shop Now"
+        }
+    ],
+    "presets": [
+        {
+            "name": "ar Hero",
+            "category": "Hero"
+        }
+    ]
+}
+
+{% endschema %}

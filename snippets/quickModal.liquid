@@ -1,0 +1,47 @@
+<div class="arModal__form">
+    <product-form class="product-form" style="margin:0;">
+        {%- form 'product',
+            product,
+            id: product.id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+        -%}
+             <div class="arPrVariants_addons">
+            {% render 'addonVariants', product: product3, priceAr: priceAr %}
+           </div>
+            <input type="hidden" name="id" id="spVarId_container_{{ section.id }}_{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
+            <div class="product-form__buttons">
+                {%- liquid
+                        assign check_against_inventory = true
+                        if product3.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                        assign check_against_inventory = false
+                        endif
+                        if product3.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                        assign quantity_rule_soldout = true
+                        endif
+                    -%}
+                <button
+                    id="ProductSubmitButton-{{ section_id }}{{ product.id }}"
+                    type="submit"
+                    name="add"
+                    class="product-form__submit button addonSubmit"
+                    {% if product3.selected_or_first_available_variant.available == false or quantity_rule_soldout%}
+                    disabled
+                    {% endif %}>
+                    <span>
+                    {%- if product3.selected_or_first_available_variant.available == false
+                        or quantity_rule_soldout
+                    -%}
+                        {{ 'products.product.sold_out' | t }}
+                    {%- else -%}
+                        ADD TO CART
+                    {%- endif -%}
+                    </span>
+                    {%- render 'loading-spinner' -%}
+                </button>
+                    
+            </div>
+        {%endform%}
+    </product-form>
+</div>"

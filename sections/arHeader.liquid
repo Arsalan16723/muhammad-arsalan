@@ -3,14 +3,14 @@
         <div class="arHeader_blocks">
             <div class="arHeaderLogo_iconBlock">
                 <button type="button" id="mobToggle">
-                    <span class="arMenu_icon">
+                    <span class="arMenu_icon menuIcon" onclick="menuOpen(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
                             <path d="M1 6.5H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1 1.5H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1 11.5H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                     </span>
-                    <span class="arClose_icon">
+                    <span class="arMenuClose_icon menuIcon" style="display:none" onclick="menuClose(this);">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                             <path d="M1 13.9997L13.7279 1.27177" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1 1.00031L13.7279 13.7282" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -30,6 +30,24 @@
         </div>
     </div>
 </header>
+<script>
+  function menuOpen(element){
+    var headerTarget = document.querySelector('.arHeadertext_btnBlock');
+    var closeIcon = document.querySelector('.arMenuClose_icon');
+    var openIcon = document.querySelector('.arMenu_icon');
+    headerTarget.style.maxHeight = '125px';
+    closeIcon.style.display = 'block'
+    element.style.display = 'none'
+  }
+  function menuClose(element){
+    var headerTarget = document.querySelector('.arHeadertext_btnBlock');
+    var closeIcon = document.querySelector('.arMenuClose_icon');
+    var openIcon = document.querySelector('.arMenu_icon');
+    headerTarget.style.maxHeight = '0px';
+    element.style.display = 'none'
+    openIcon.style.display = 'block'
+  }
+</script>
 {%  schema  %}  
 {
     "name": "ar Header",

@@ -58,6 +58,7 @@ button#mobToggle {
     line-height: 20.48px; /* 128% */
     text-transform: uppercase;
 }
+.menuIcon{cursor:pointer}
 /* Hero Banner */
 .arHeroBanner {
     position: relative;
@@ -314,4 +315,70 @@ span.colorBg {
 .arProd_atcBtns{margin-top:50px;}
 .arProd_atcBtns button{
   width:100%;
+}
+/* RESPONSIVNESS */
+@media only screen and (max-width:1280px){
+  h1.arHeroTitle {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 55px;
+}
+  .arHero_content p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+}
+@media only screen and (max-width:1050px){
+  .arHero_content {
+    max-width: 360px;
+    position: relative;
+    bottom: 18px;
+}
+  h1.arHeroTitle {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 46px;
+}
+
+.arHero_content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+}
+@media only screen and (max-width:768px){
+   .arHeaderLogo_iconBlock {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;min-height: 65px;
+    align-items: center;
+}
+  .arHeader_blocks {
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    align-items: center;min-height:100%;
+}
+
+  .arHeader_inner {
+    padding: 10px 15px;
+}
+  button#mobToggle {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 32.5px;
+    background: transparent;
+    border: 0;transform:translateY(-50%);
+}
+  .arHeadertext_btnBlock {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    height: 124px;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+}
 }

@@ -186,3 +186,74 @@ h3.arPr_gridTtile {
     top: 50%;
     left: 50%;
 }
+/* Modal Styling */
+.arProduct_modal {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    background: rgba(255,255,255,0.4);
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+.arModal_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.modalContent {
+    max-width: 311px;
+    background: #FFF;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20);
+    padding: 20px;
+    gap: 8px;
+    align-items: flex-start;
+}
+.arModal_blocks {
+    display: flex;
+    gap: 8px;
+}
+.arModal_image_block.arModalBlock {
+    max-width: 120px;
+}
+.arModal_blocks img {
+    width: 120px;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+}
+h4.arModal_prTitle {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+p.modalPrice {
+    margin: 0;
+    margin-bottom: 12px;
+    color: #000;
+    font-family: Lustria;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+.modalDescription * {
+    margin: 0;
+    letter-spacing: normal;
+    color: #000;
+    font-family: Jost;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%;
+    letter-spacing: -0.14px;
+}

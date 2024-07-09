@@ -8,7 +8,8 @@
             data-type: 'add-to-cart-form'
         -%}
              <div class="arPrVariants_addons">
-            {% render 'addonVariants', product: product3, priceAr: priceAr %}
+                {% assign priceAr = product.price %}
+            {% render 'addonVariants', product: product, priceAr: priceAr %}
            </div>
             <input type="hidden" name="id" id="spVarId_container_{{ section.id }}_{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
             <div class="product-form__buttons">

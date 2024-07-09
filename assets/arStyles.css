@@ -88,3 +88,37 @@ button#mobToggle {
     background: #F5F5F5;
     letter-spacing: normal;
 }
+/* Products Grid Section */
+.arProductsGrid_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 50px 50px 10px;
+}
+h3.arPr_gridTtile {
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 36px;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+.arPr_blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+.arPr_block {
+    width: calc(33% - 10px);
+}
+.arPr_block img {
+    width: 100%;
+}
+.arPrBlock_inner button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

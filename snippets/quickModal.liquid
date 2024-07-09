@@ -9,6 +9,13 @@
         -%}
              <div class="arPrVariants_addons">
                 {% assign priceAr = product.price %}
+               <div class="arAddonPrice_block">
+                          <span class="arAddonPRice_heading">Total Set Price:</span>
+                          <span class="money arTotalPricing" id="crntPrc_Atc{{ section.id }}{{ product.id }}">
+                            {% assign total = product.price | plus: product.price %}
+                              {{ total | money_without_trailing_zeros }}
+                          </span>
+                        </div>
             {% render 'addonVariants', product: product, priceAr: priceAr %}
            </div>
             <input type="hidden" name="id" id="spVarId_container_{{ section.id }}_{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">

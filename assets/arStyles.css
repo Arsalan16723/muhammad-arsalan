@@ -1,3 +1,25 @@
+/* FontFace */
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Light.ttf?v=1720557442');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Regular.ttf?v=1720557443');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Medium.ttf?v=1720557442');
+    font-weight: 500;
+    font-style: normal;
+}
+/* Styling */
 .arHeader_inner {
     padding: 10px 50px;background: #F5F5F5;
 }

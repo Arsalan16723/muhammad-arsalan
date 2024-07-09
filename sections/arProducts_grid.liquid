@@ -3,8 +3,18 @@
         <h3 class="arPr_gridTtile">{{section.settings.title}}</h3>
         <div class="arPr_blocks">
             {%for block in section.blocks%}
-                <div class="">
-                    
+                {% assign  product = block.settings.product  %}
+                <div class="arPr_block">
+                    <div class="arPrBlock_inner">
+                        <img src="{{product.images.first |  image_url: width: 'original' }}" width="" height="">
+                        <button type="button" class="arModalTrigger arModalTrigger_{{product.id}}" data-target="moda_{{product.id}}" data-id="{{product.id}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
+                            <path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+                            <path d="M7.11523 11.2725H15.5768" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>      
             {%endfor%}
         </div>   

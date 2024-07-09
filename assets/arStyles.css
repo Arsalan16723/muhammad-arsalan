@@ -19,6 +19,12 @@
     font-weight: 500;
     font-style: normal;
 }
+@font-face {
+    font-family: Lustria;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Lustria-Regular.ttf?v=1720557870');
+    font-weight: 400;
+    font-style: normal;
+}
 /* Styling */
 .arHeader_inner {
     padding: 10px 50px;background: #F5F5F5;
@@ -211,6 +217,7 @@ h3.arPr_gridTtile {
     left: 50%;cursor:pointer;
 }
 /* Modal Styling */
+.arModalInfoInner{text-align:left;}
 .arProduct_modal {
     position: fixed;
     z-index: 99;
@@ -511,3 +518,4 @@ a.arHeroBtn:before {
 a.arHeroBtn:hover:before {
   right: 0;
 }
+.arModalInfoInner{text-align:left;}

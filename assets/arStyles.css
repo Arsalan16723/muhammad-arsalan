@@ -127,6 +127,7 @@ h1.arHeroTitle {
     line-height: 20.48px;
     text-transform: uppercase;
 }
+.arMobOnly{display:none !important;}
 /* Bottom Bar Of hero section */
 .arBottomBar p {
     margin: 0;
@@ -175,7 +176,7 @@ h3.arPr_gridTtile {
     width: calc(33% - 12px);
 }
 .arPr_block img {
-    width: 100%;
+    width: 100%;display:block;
 }
 .arPrBlock_inner{position: relative;}
 .arPrBlock_inner button {
@@ -346,6 +347,7 @@ span.colorBg {
 }
 }
 @media only screen and (max-width:768px){
+  
    .arHeaderLogo_iconBlock {
     width: 100%;
     text-align: center;
@@ -380,5 +382,62 @@ span.colorBg {
     width: 100%;
     justify-content: center;
     gap: 16px;
+}
+  /* Hero Section */
+  .arMobOnly{display:block !important}
+  .arDeskOnly{display:none !important;}
+  .arMobText {
+    padding: 45px 15px 12px;
+    text-align: center;
+}
+  h1.arHeroTitle.arMobHeroTitle {
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 24px;
+}
+p.arHeroRte.arMobRte {
+    text-align: center;
+    font-size: 16px;font-family: Jost;
+    font-style: normal;
+    line-height: 130%;
+    max-width: 340px;
+    margin: 0 auto;
+    letter-spacing: normal;
+}
+  .arHeroInfoInner {
+    padding: 0;
+    justify-content: center;
+}
+  .arHero_content {
+    bottom: 55px;
+}
+  .arHero_content a{width:200px;}
+  p.arBtm_rte {
+    text-align: center;
+    font-size: 14px;
+    line-height: 13.424px;
+}
+  .arProductsGrid_inner {
+    padding: 90px 15px 30px;
+}
+  .arBottomBar p{padding:10px;}
+}
+@media only screen and (max-width:500px){
+  .arPr_blocks{gap:5px;}
+  .arPr_block {
+    width: calc(50% - 5px);
+}
+  .arProductsGrid_inner {
+    padding-top: 40px;
+    text-align: center;
+}
+  h3.arPr_gridTtile {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 20px;
 }
 }

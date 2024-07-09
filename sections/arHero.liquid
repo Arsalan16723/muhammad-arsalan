@@ -1,19 +1,31 @@
 <section class="arhero_section">
     <div class="arHero_inner">
+        <div class="arMobOnly">
+          <div class="arMobText">
+              <h1 class="arHeroTitle arMobHeroTitle">{{ section.settings.title }}</h1>
+              <p class="arHeroRte arMobRte">{{ section.settings.text2 }}</p>
+          </div>
+        </div>
         <div class="arHeroBanner">
-            <img src="{{section.settings.image |  image_url: width: '2000x'}}" alt="{{section.settings.image.alt}}" width="" height="">
+            <img src="{{section.settings.image |  image_url: width: '2000x'}}" alt="{{section.settings.image.alt}}" width="" height="" {% if section.settings.image2 != blank %}class="arDeskOnly"{% endif %}>
+            {% if section.settings.image2 != blank %}
+              <img src="{{section.settings.image2 |  image_url: width: '2000x'}}" alt="{{section.settings.image.alt}}" width="" height="" class="arMobOnly">
+              
+            {% endif %}
             <div class="arHeroInfo">
               <div class="arHeroInfoInner">
                 <div class="arHero_content">
-                    <h1 class="arHeroTitle">{{section.settings.title}}</h1>
-                    <p class="arHeroRte">{{section.settings.text}}</p>
-                    <a href="{{section.settings.link}}">{{section.settings.label}}</a>
+                    <h1 class="arHeroTitle arDeskOnly">{{section.settings.title}}</h1>
+                    <p class="arHeroRte arDeskOnly">{{section.settings.text}}</p>
+                    <a href="{{section.settings.link}}" class="arHeroBtn">{{section.settings.label}}</a>
                 </div>
               </div>
             </div>
         </div>
         <div class="arBottomBar">
-            <p class="arBtm_rte">{{section.settings.btm_text}}</p>
+            <p class="arBtm_rte arDeskOnly">{{section.settings.btm_text}}</p>
+            <p class="arBtm_rte arMobOnly">{{section.settings.btmtext2}}</p>
+          
         </div>
     </div>
 </section>
@@ -30,6 +42,11 @@
             "label": "Image"
         },
         {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Mobile Image"
+        },
+        {
             "type": "text",
             "id": "title",
             "label": "Title",
@@ -40,6 +57,12 @@
             "id": "text",
             "label": "Rich Text",
             "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+        },
+        {
+              "type": "inline_richtext",
+              "id": "text2",
+              "label": "Mobile hero Rich Text",
+              "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
         },
         {
            "type": "url",
@@ -57,6 +80,12 @@
             "id": "btm_text",
             "label": "Text for bottom of hero",
             "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+        },
+        {
+              "type": "inline_richtext",
+              "id": "btmtext2",
+              "label": "Mobile Bottom Text",
+              "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
         }
     ],
     "presets": [

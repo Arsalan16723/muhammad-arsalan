@@ -12,6 +12,9 @@
               </div>
             </div>
         </div>
+        <div class="arBottomBar">
+            <p class="arBtm_rte">{{section.settings.btm_text}}</p>
+        </div>
     </div>
 </section>
 {% schema  %} 
@@ -31,7 +34,7 @@
             "id": "title",
             "label": "Title",
             "default": "The Gift Guide"
-        }
+        },
         {
             "type": "inline_richtext",
             "id": "text",
@@ -48,6 +51,12 @@
             "id": "label",
             "label": "Button Label",
             "default": "Shop Now"
+        },
+        {
+            "type": "textarea",
+            "id": "btm_text",
+            "label": "Text for bottom of hero",
+            "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
         }
     ],
     "presets": [

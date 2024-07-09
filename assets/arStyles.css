@@ -176,6 +176,7 @@ h3.arPr_gridTtile {
 .arPr_block img {
     width: 100%;
 }
+.arPrBlock_inner{position: relative;}
 .arPrBlock_inner button {
     background: transparent;
     border: 0;

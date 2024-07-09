@@ -7,13 +7,38 @@
                 <div class="arPr_block">
                     <div class="arPrBlock_inner">
                         <img src="{{product.images.first |  image_url: width: '2000x' }}" width="" height="">
-                        <button type="button" class="arModalTrigger arModalTrigger_{{product.id}}" data-target="moda_{{product.id}}" data-id="{{product.id}}">
+                        <button type="button" class="arModalTrigger arModalTrigger_{{product.id}}" data-target="modal_{{product.id}}" data-id="{{product.id}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                             <circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
                             <path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
                             <path d="M7.11523 11.2725H15.5768" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                    </div>
+                    <div class="arProduct_modal" id="modal_{{product.id}}">
+                        <div class="arModal_inner">
+                            <div class="arModal_blocks">
+                                <div class="arModal_image_block arModalBlock">
+                                    <img src="{{product.images.first |  image_url: width: '800x' }}" width="" height="" alt="product image">
+                                </div>
+                                <div class="arModal_info_block arModalBlock">
+                                    <div class="arModalInfoInner">
+                                        <h4 class="arModal_prTitle">{{product.title}}</h4>
+                                        <p class="modalPrice">
+                                            <span id="crnt_price_{{product.id}}_{{section.id}}" class="currentPriceModal">
+                                                {{product.price |  money_without_trailing_zeros}}
+                                            </span>
+                                        </p>
+                                        <div class="modalDescription">
+                                            {{product.description}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>"
+                            <div class="arModal_form">
+                                {%  render 'quickModal', product: product %}
+                            </div>
+                        </div>
                     </div>
                 </div>      
             {%endfor%}

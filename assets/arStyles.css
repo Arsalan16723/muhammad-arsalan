@@ -1,5 +1,5 @@
 .arHeader_inner {
-    padding: 10px 50px;
+    padding: 10px 50px;background: #F5F5F5;
 }
 .arHeader_inner img {
     height: 19px;
@@ -29,9 +29,15 @@ button#mobToggle {
 }
 .arHeader_blocks p {
     margin: 0;
-    font-size: 16px;
     letter-spacing: normal;
     line-height: 1;
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13.424px; /* 83.898% */
 }
 .arBTnBlock a {
     display: flex;
@@ -43,6 +49,14 @@ button#mobToggle {
     justify-content: center;
     align-items: center;
     letter-spacing: normal;
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.48px; /* 128% */
+    text-transform: uppercase;
 }
 /* Hero Banner */
 .arHeroBanner {
@@ -50,7 +64,7 @@ button#mobToggle {
 }
 .arHeroBanner img {
     width: 100%;
-    max-height: calc(100vh - 65px);
+    max-height: calc(100vh - 120px);
     object-fit: cover;
     object-position: center left;
     display: flex;
@@ -67,12 +81,50 @@ button#mobToggle {
     height: 100%;
     display: flex;
     align-items: flex-end;
-    padding-left: 67px;
+    padding-left: 55px;
 }
 .arHero_content {
     max-width: 483px;
     position: relative;
-    bottom: 100px;
+    bottom: 35px;
+}
+h1.arHeroTitle {
+    color: #000;
+    font-family: Jost;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 50px;
+}
+.arHero_content p {
+    letter-spacing: normal;
+    margin-top: 0;
+    margin-bottom: 50px;
+    color: #000;
+    font-family: Jost;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+.arHero_content a {
+    display: flex;
+    text-decoration: none;
+    background: #000;
+    max-width: 220px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: normal;
+    color: #FFF;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.48px;
+    text-transform: uppercase;
 }
 /* Bottom Bar Of hero section */
 .arBottomBar p {
@@ -82,24 +134,35 @@ button#mobToggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
     width: 100%;
     padding: 10px 50px;
     background: #F5F5F5;
     letter-spacing: normal;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13.424px; /* 83.898% */
 }
 /* Products Grid Section */
 .arProductsGrid_inner {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 50px 50px 10px;
+    padding: 90px 50px 30px;
 }
 h3.arPr_gridTtile {
     margin-top: 0;
-    margin-bottom: 50px;
-    font-size: 36px;
+    margin-bottom: 30px;
+    
     letter-spacing: normal;
     font-weight: bold;
+    color: #000;
+    font-family: Lustria;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 43.2px */
 }
 .arPr_blocks {
     display: flex;
@@ -108,7 +171,7 @@ h3.arPr_gridTtile {
     justify-content: space-between;
 }
 .arPr_block {
-    width: calc(33% - 10px);
+    width: calc(33% - 12px);
 }
 .arPr_block img {
     width: 100%;

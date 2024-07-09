@@ -1,6 +1,14 @@
 .arHeader_inner {
     padding: 10px 50px;
 }
+.arHeader_inner img {
+    height: 19px;
+    width: auto;
+    display: flex;
+}
+button#mobToggle {
+    display: none;
+}
 .arHeader_blocks {
     display: flex;
     align-items: center;

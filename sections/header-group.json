@@ -59,6 +59,7 @@
     "ar_header_AbTYR9": {
       "type": "arHeader",
       "settings": {
+        "logo": "shopify:\/\/shop_images\/Group_1000007777.svg",
         "text": "Add header text here",
         "link": "",
         "label": "Choose Gift"

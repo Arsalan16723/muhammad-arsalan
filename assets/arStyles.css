@@ -1,0 +1,82 @@
+.arHeader_inner {
+    padding: 10px 50px;
+}
+.arHeader_blocks {
+    display: flex;
+    align-items: center;
+    min-height: 65px;
+}
+.arHeaderLogo_iconBlock {
+    width: 33.33%;
+}
+.arHeadertext_btnBlock {
+    display: flex;
+    align-items: center;
+    width: 66.67%;
+    justify-content: space-between;
+}
+.arTextBlock {
+    width: 50%;
+    text-align: center;
+}
+.arHeader_blocks p {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 1;
+}
+.arBTnBlock a {
+    display: flex;
+    text-decoration: none;
+    width: 207px;
+    height: 44px;
+    background: #FFF544;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: normal;
+}
+/* Hero Banner */
+.arHeroBanner {
+    position: relative;
+}
+.arHeroBanner img {
+    width: 100%;
+    max-height: calc(100vh - 65px);
+    object-fit: cover;
+    object-position: center left;
+    display: flex;
+}
+.arHeroInfo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.arHeroInfoInner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 67px;
+}
+.arHero_content {
+    max-width: 483px;
+    position: relative;
+    bottom: 100px;
+}
+/* Bottom Bar Of hero section */
+.arBottomBar p {
+    margin: 0;
+    text-align: center;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 50px;
+    background: #F5F5F5;
+    letter-spacing: normal;
+}

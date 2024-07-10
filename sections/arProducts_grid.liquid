@@ -1,3 +1,8 @@
+{% assign gift = section.settings.product %}
+{% if gift != blank %}
+  {% assign giftProduct = true %}
+  {% assign variant_id = gift.first_available_variant.id %}
+{% endif %}
 <section class="arProductGrid">
     <div class="arProductsGrid_inner">
         <h3 class="arPr_gridTtile">{{section.settings.title}}</h3>
@@ -52,6 +57,52 @@
         </div>   
     </div>
 </section>
+<script>
+// Define the addItemToCart function
+  var variantVal = {{ variant_id }};
+function addItemToCart(itemId, itemQuantity) {
+  let formData = {
+    'items': [{
+      id: itemId,
+      quantity: itemQuantity
+    }]
+  };
+
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+// Add event listeners to all buttons with the class 'arActionButton'
+document.querySelectorAll('.arActionButton').forEach(button => {
+  button.addEventListener('click', function() {
+    let dataValue = this.getAttribute('data-value');
+    let dataTarget = this.getAttribute('data-target');
+    let targetElement = document.querySelector('.' + dataTarget);
+    if (dataValue === "Black / M") {
+      // Call the addItemToCart function with your desired itemId and quantity
+      addItemToCart(variantVal, 1);
+      targetElement.click();
+    }
+    else{
+      targetElement.click();
+    }
+  });
+});
+
+</script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {% schema %}
 {
     "name": "ar Products Grid",

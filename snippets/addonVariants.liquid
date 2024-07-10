@@ -9,6 +9,7 @@
     border:1px solid #000 !important;
   }
 </style>
+
 <div class="spVariants spVariantsNew">
   {% for option in product.options_with_values %}
     <div class="arVar_opValue {% if option.name contains 'Color' or option.name contains 'color' or option.name == 'Color' or option.name == 'color'%}arColoSeelct{% endif %}">
@@ -43,7 +44,7 @@
       </div>
     </div>
   {% endfor %}
-{% comment %} These are hidden button they hold the data of all variants available for the product {% endcomment %}
+
   <div class="arVariantsComplete arVars_{{ product.id }}_{{ section.id }}" style="display:none;">
     {% for variant in product.variants %}
       <button
@@ -62,11 +63,10 @@
   <button type="button" id="value{{ section.id }}{{product.id}}" style="display:none">Get Value</button>
 </div>
 <script>
-    // Define variables for the number of options available in product
     {% for option in product.options_with_values %}
       var option{{ forloop.index }}{{- option.name | remove: ' '-}}{{ product.id }} = "{{ option.values.first }}";
     {% endfor %}
-    // Handle Click Event for variant option click
+
     document.addEventListener('DOMContentLoaded', function() {
       {% for option in product.options_with_values %}
         document.querySelectorAll(".arVar_{{ section.id }}_{{product.id}}_{{ option.name | remove: ' ' }}").forEach(function(element) {
@@ -77,7 +77,7 @@
             });
             this.classList.add("activeVar_sp{{ section.id }}");
             option{{ forloop.index }}{{ option.name | remove: ' ' }}{{ product.id }} = ar{{- option.name | remove: ' ' -}}Value;
-            // Media Function Not usable here
+            
             if (this.classList.contains('arColrOption__selector')) {
               var crntColor = this.getAttribute('data-value');
               document.querySelectorAll('.arFp_media').forEach(function(media) {
@@ -97,8 +97,8 @@
                     {% endfor %}
 
       var buttons = document.querySelectorAll('.arVars_{{ product.id }}_{{ section.id }} button');
-
-      // Loop through each button which holds the vriant id and full variant name
+    
+      // Loop through each button
       buttons.forEach(function(button) {
         // Get the data-value attribute of the current button
         var buttonValue = button.getAttribute('data-value');
@@ -109,10 +109,12 @@
           var dataId = button.getAttribute('data-id');
           // You can do something with the data-id, for example, log it
           console.log("Match found! data-id: " + dataId);
-      
+          console.log(valueee);
           var comparePrice = button.getAttribute('data-compare');
           var currentPrice = button.getAttribute('data-current');
           document.getElementById("spVarId_container_{{ section.id }}_{{ product.id }}").value = dataId;
+          var actionBtn = document.getElementById("arActionButton_{{ product.id }}_{{ section.id }}");
+          actionBtn.setAttribute("data-value", valueee);
           // document.getElementById('compPrc_Atc{{ section.id }}{{ product.id }}').textContent = comparePrice;
           document.getElementById('crntPrc_Atc{{ section.id }}{{ product.id }}').textContent = currentPrice;
         }
@@ -125,7 +127,6 @@
     modal.style.display = 'none';
   });
   }
-//   Product Modal open 
   function triggerModal(button) {
   var targetId = button.getAttribute('data-target');
   var modal = document.getElementById(targetId);

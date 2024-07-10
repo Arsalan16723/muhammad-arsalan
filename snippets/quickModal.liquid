@@ -15,37 +15,55 @@
             {% render 'addonVariants', product: product, priceAr: priceAr %}
            </div>
             <input type="hidden" name="id" id="spVarId_container_{{ section.id }}_{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
+
             <div class="product-form__buttons arProd_atcBtns">
-                {%- liquid
-                        assign check_against_inventory = true
-                        if product3.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
-                        assign check_against_inventory = false
-                        endif
-                        if product3.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
-                        assign quantity_rule_soldout = true
-                        endif
-                    -%}
-                <button
-                    id="ProductSubmitButton-{{ section_id }}{{ product.id }}"
-                    type="submit"
-                    name="add"
-                    class="product-form__submit button addonSubmit"
-                    {% if product3.selected_or_first_available_variant.available == false or quantity_rule_soldout%}
-                    disabled
-                    {% endif %}>
-                    <span>
-                    {%- if product3.selected_or_first_available_variant.available == false
-                        or quantity_rule_soldout
-                    -%}
-                        {{ 'products.product.sold_out' | t }}
-                    {%- else -%}
-                        ADD TO CART
-                    {%- endif -%}
-                    </span>
-                    {%- render 'loading-spinner' -%}
-                </button>
-                    
-            </div>
+          {%- liquid
+            assign check_against_inventory = true
+            if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+              assign check_against_inventory = false
+            endif
+            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+              assign quantity_rule_soldout = true
+            endif
+          -%}
+          <button type="button" id="arActionButton_{{ product.id }}_{{ section.id }}" class="arActionButton_{{ product.id }}_{{ section.id }} arActionButton" data-value="{{ product.first_available_variant.title }}" data-target="atc_{{ product.id }}_{{ section.id }}">
+            <span class="btnTxt">
+              ADD TO CART
+            </span>
+            <span class="btnArrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="13" viewBox="0 0 26 13" fill="none">
+                <path d="M0.999512 5.75L0.249512 5.75L0.249512 7.25L0.999512 7.25L0.999512 5.75ZM25.5298 7.03033C25.8227 6.73744 25.8227 6.26257 25.5298 5.96967L20.7569 1.1967C20.464 0.903807 19.9891 0.903807 19.6962 1.1967C19.4033 1.48959 19.4033 1.96447 19.6962 2.25736L23.9389 6.5L19.6962 10.7426C19.4033 11.0355 19.4033 11.5104 19.6962 11.8033C19.9891 12.0962 20.464 12.0962 20.7569 11.8033L25.5298 7.03033ZM0.999512 7.25L24.9995 7.25L24.9995 5.75L0.999512 5.75L0.999512 7.25Z" fill="#F5F5F5"/>
+              </svg>
+            </span>
+          </button>
+          <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="atc_{{ product.id }}_{{ section.id }} product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == nil 
+            %}
+              disabled
+            {% endif %}
+            style="display:none;"
+          >
+            <span>
+              {%- if product.selected_or_first_available_variant == nil -%}
+                {{ 'products.product.unavailable' | t }}
+              {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- endif -%}
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+          {%- if show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+        </div>
         {%endform%}
     </product-form>
 </div>

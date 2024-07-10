@@ -70,8 +70,8 @@
           "type": "product",
           "settings": {
             "product": "dark-denim-top",
-            "positionVertical": 50,
-            "positionHorizontal": 50
+            "positionVertical": 48,
+            "positionHorizontal": 64
           }
         }
       },

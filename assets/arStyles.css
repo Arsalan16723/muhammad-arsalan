@@ -560,7 +560,7 @@ p.arHeroRte.arMobRte {
     font-style: normal;
     font-weight: 400;
     line-height: 20.48px;
-    text-transform: uppercase;
+    text-transform: uppercase;cursor:pointer;
     gap: 20px;
 }
 .arModalInfoInner, .arVar_optionName{text-align:left;}

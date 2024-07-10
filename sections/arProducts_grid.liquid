@@ -8,10 +8,16 @@
         <div class="arPr_blocks">
             {%for block in section.blocks%}
                 {% assign  product = block.settings.product  %}
+                <style>
+                .arPr_block button.arTrigger_{{ block.id }}{
+                  top:{{block.settings.positionVertical}}%;
+                  left:{{block.settings.positionHorizontal}}%;
+                }
+              </style>
                 <div class="arPr_block">
                     <div class="arPrBlock_inner">
                         <img src="{{product.images.first |  image_url: width: '2000x' }}" width="" height="">
-                        <button type="button" class="arModalTrigger arModalTrigger_{{product.id}}" onclick="triggerModal(this);" data-target="modal_{{product.id}}_{{section.id}}" data-id="{{product.id}}">
+                        <button type="button" class="arModalTrigger arModalTrigger_{{product.id}} arTrigger_{{ block.id }}" onclick="triggerModal(this);" data-target="modal_{{product.id}}_{{section.id}}" data-id="{{product.id}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                             <circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
                             <path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
@@ -130,6 +136,26 @@ document.querySelectorAll('.arActionButton').forEach(button => {
                     "type": "product",
                     "label": "Choose Gift Product",
                     "id": "product"
+                },
+                {
+                  "type": "range",
+                  "id": "positionVertical",
+                  "min": 0,
+                  "max": 100,
+                  "step": 1,
+                  "unit": "%",
+                  "label": "Postion of modal button vertically",
+                  "default": 50
+                },
+                {
+                  "type": "range",
+                  "id": "positionHorizontal",
+                  "min": 0,
+                  "max": 100,
+                  "step": 1,
+                  "unit": "%",
+                  "label": "Postion of modal button horizontally",
+                  "default": 50
                 }
             ]
         }

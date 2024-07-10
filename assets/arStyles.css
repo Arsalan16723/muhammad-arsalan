@@ -1,0 +1,566 @@
+/* FontFace */
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Light.ttf?v=1720557442');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Regular.ttf?v=1720557443');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Jost;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Jost-Medium.ttf?v=1720557442');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: Lustria;
+    src: url('https://cdn.shopify.com/s/files/1/0664/4485/3416/files/Lustria-Regular.ttf?v=1720557870');
+    font-weight: 400;
+    font-style: normal;
+}
+/* Styling */
+.arHeader_inner {
+    padding: 10px 50px;background: #F5F5F5;
+}
+.arHeader_inner img {
+    height: 19px;
+    width: auto;
+    display: flex;
+}
+button#mobToggle {
+    display: none;
+}
+.arHeader_blocks {
+    display: flex;
+    align-items: center;
+    min-height: 65px;
+}
+.arHeaderLogo_iconBlock {
+    width: 33.33%;
+}
+.arHeadertext_btnBlock {
+    display: flex;
+    align-items: center;
+    width: 66.67%;
+    justify-content: space-between;
+}
+.arTextBlock {
+    width: 50%;
+    text-align: center;
+}
+.arHeader_blocks p {
+    margin: 0;
+    letter-spacing: normal;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13.424px; /* 83.898% */
+}
+.arBTnBlock a {
+    display: flex;
+    text-decoration: none;
+    width: 207px;
+    height: 44px;
+    background: #FFF544;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: normal;
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.48px; /* 128% */
+    text-transform: uppercase;
+}
+.menuIcon{cursor:pointer}
+/* Hero Banner */
+.arHeroBanner {
+    position: relative;
+}
+.arHeroBanner img {
+    width: 100%;
+    max-height: calc(100vh - 120px);
+    object-fit: cover;
+    object-position: center left;
+    display: flex;
+}
+.arHeroInfo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.arHeroInfoInner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 55px;
+}
+.arHero_content {
+    max-width: 483px;
+    position: relative;
+    bottom: 35px;
+}
+h1.arHeroTitle {
+    color: #000;
+    font-family: Jost;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 50px;
+}
+.arHero_content p {
+    letter-spacing: normal;
+    margin-top: 0;
+    margin-bottom: 50px;
+    color: #000;
+    font-family: Jost;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+.arHero_content a {
+    display: flex;
+    text-decoration: none;
+    background: #000;
+    max-width: 220px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: normal;
+    color: #FFF;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.48px;
+    text-transform: uppercase;
+}
+.arMobOnly{display:none !important;}
+/* Bottom Bar Of hero section */
+.arBottomBar p {
+    margin: 0;
+    text-align: center;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 50px;
+    background: #F5F5F5;
+    letter-spacing: normal;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13.424px; /* 83.898% */
+}
+/* Products Grid Section */
+.arProductsGrid_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 90px 50px 30px;
+}
+h3.arPr_gridTtile {
+    margin-top: 0;
+    margin-bottom: 30px;
+    
+    letter-spacing: normal;
+    font-weight: bold;
+    color: #000;
+    font-family: Lustria;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 43.2px */
+}
+.arPr_blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+.arPr_block {
+    width: calc(33% - 12px);
+}
+.arPr_block img {
+    width: 100%;display:block;
+}
+.arPrBlock_inner{position: relative;}
+.arPrBlock_inner button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;cursor:pointer;
+}
+/* Modal Styling */
+.arModalInfoInner{text-align:left;}
+.arProduct_modal {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    background: rgba(255,255,255,0.4);
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+.arModal_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.modalContent {
+    max-width: 311px;
+    background: #FFF;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20);
+    padding: 20px;
+    gap: 8px;
+    align-items: flex-start;
+}
+.arModal_blocks {
+    display: flex;
+    gap: 8px;
+}
+.arModal_image_block.arModalBlock {
+    max-width: 120px;
+}
+.arModal_blocks img {
+    width: 120px;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+}
+h4.arModal_prTitle {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+p.modalPrice {
+    margin: 0;
+    margin-bottom: 12px;
+    color: #000;
+    font-family: Lustria;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+.modalDescription * {
+    margin: 0;
+    letter-spacing: normal;
+    color: #000;
+    font-family: Jost;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%;
+    letter-spacing: -0.14px;
+}
+button.arCloseModal {
+    margin-left: auto;
+    display: flex;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    margin-bottom: 6px;cursor:pointer;
+}
+/* Modal Styling */
+.arVar_opValue {
+    margin-top: 10px;
+}
+.spOption {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.spVariant_ar {
+    width: 100%;
+}
+.spOption button {
+    width: 100%;
+    border-radius: 0;
+    background: transparent;
+    height: 40px;
+    padding: 0;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;transition:all 0.45s ease-in-out;
+    position: relative;
+}
+.arVarcolor_border {
+    width: 5px;
+    align-self: flex-start;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    border-right: 1px solid #000;z-index:99;
+}
+.arcoloredBorder_Black{
+  background:#000 !important;
+}
+.prvar{transition:all 0.45s ease-in-out;cursor:pointer}
+.arcoloredBorder_White{
+  background:#fff !important
+}
+span.colorBg {
+    display: flex;
+    width: 100%;padding-left:12px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;transition:all 0.75s ease-in-out;
+}
+.arProd_atcBtns{margin-top:50px;}
+.arProd_atcBtns button{
+  width:100%;
+}
+/* RESPONSIVNESS */
+@media only screen and (max-width:1280px){
+  h1.arHeroTitle {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 55px;
+}
+  .arHero_content p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+}
+@media only screen and (max-width:1050px){
+  .arHero_content {
+    max-width: 360px;
+    position: relative;
+    bottom: 18px;
+}
+  h1.arHeroTitle {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 46px;
+}
+
+.arHero_content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+}
+@media only screen and (max-width:768px){
+  
+   .arHeaderLogo_iconBlock {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;min-height: 65px;
+    align-items: center;
+}
+  .arHeader_blocks {
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    align-items: center;min-height:100%;
+}
+
+  .arHeader_inner {
+    padding: 10px 15px;
+}
+  button#mobToggle {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 32.5px;
+    background: transparent;
+    border: 0;transform:translateY(-50%);
+}
+  .arHeadertext_btnBlock {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    height: 124px;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+}
+  /* Hero Section */
+  .arMobOnly{display:block !important}
+  .arDeskOnly{display:none !important;}
+  .arMobText {
+    padding: 45px 15px 12px;
+    text-align: center;
+}
+  h1.arHeroTitle.arMobHeroTitle {
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 24px;
+}
+p.arHeroRte.arMobRte {
+    text-align: center;
+    font-size: 16px;font-family: Jost;
+    font-style: normal;
+    line-height: 130%;
+    max-width: 340px;
+    margin: 0 auto;
+    letter-spacing: normal;
+}
+  .arHeroInfoInner {
+    padding: 0;
+    justify-content: center;
+}
+  .arHero_content {
+    bottom: 55px;
+}
+  .arHero_content a{width:200px;}
+  p.arBtm_rte {
+    text-align: center;
+    font-size: 14px;
+    line-height: 13.424px;
+}
+  .arProductsGrid_inner {
+    padding: 90px 15px 30px;
+}
+  .arBottomBar p{padding:10px;}
+}
+@media only screen and (max-width:500px){
+  .arPr_blocks{gap:5px;}
+  .arPr_block {
+    width: calc(50% - 5px);
+}
+  .arProductsGrid_inner {
+    padding-top: 40px;
+    text-align: center;
+}
+  h3.arPr_gridTtile {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 20px;
+}
+}
+/* Button Animations */
+.arBTnBlock a.arheaderBtn{
+    background:#FFF544;position: relative;transition: 0.45s ease;
+    z-index: 1;
+    display:flex;
+    gap:15px;
+    line-height: 1;
+    align-items: center;
+  }
+  .arBTnBlock a.arheaderBtn span{
+      display:flex;width:max-content;
+  }
+  a.arheaderBtn svg path {
+      fill: #000;
+    transition: all 0.45s ease-in-out;
+  }
+  .arBTnBlock a.arheaderBtn:hover{
+    color:#fff;
+  }
+  .arBTnBlock a.arheaderBtn:hover svg path {
+      fill: #fff;
+    }
+  .arBTnBlock a.arheaderBtn:before, .arBTnBlock a.arheaderBtn:after {
+    background: #000000;
+    transition: 0.3s ease;
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  .arBTnBlock a.arheaderBtn:before {
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  .arBTnBlock a.arheaderBtn:hover:before {
+    right: 0;
+  }
+  /* HeroButton */
+  a.arHeroBtn{
+    background:#000;position: relative;transition: 0.4s ease;
+    z-index: 1;display:flex;
+    gap:15px;
+    line-height: 1;
+    align-items: center;
+  }
+  a.arHeroBtn span{
+      display:flex;width:max-content;
+  }
+  a.arHeroBtn:hover{
+    color:#000;
+  }
+  a.arHeroBtn:hover svg path{
+    fill:#000;
+  }
+  a.arHeroBtn:before, a.arHeroBtn:after {
+    background: #FFF544;
+    transition: 0.3s ease;
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  a.arHeroBtn:before {
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  a.arHeroBtn:hover:before {
+    right: 0;
+  }
+  .arActionButton span {
+    display: flex;
+}
+
+.arActionButton {
+    background: #000;
+    padding: 0;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    color: #FFF;
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.48px;
+    text-transform: uppercase;
+    gap: 20px;
+}
+.arModalInfoInner, .arVar_optionName{text-align:left;}

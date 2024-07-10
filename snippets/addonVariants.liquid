@@ -1,0 +1,137 @@
+<style>
+  .activeVar_sp{{ section.id }} .colorBg{
+        background: #000 !important;
+    color: #fff;
+  }
+  .normalSelector.activeVar_sp{{ section.id }}{
+    background:#000 !important;
+    color:#fff !important;
+    border:1px solid #000 !important;
+  }
+</style>
+
+<div class="spVariants spVariantsNew">
+  {% for option in product.options_with_values %}
+    <div class="arVar_opValue {% if option.name contains 'Color' or option.name contains 'color' or option.name == 'Color' or option.name == 'color'%}arColoSeelct{% endif %}">
+      <div class="arVar_optionName">
+        <span>{{ option.name }}</span>
+      </div>
+      <div class="spOption spOption{{ forloop.index }}">
+        {% for value in option.values %}
+          <div class="spVariant_ar">
+            <button
+              type="button"
+              id="prVariant_{{ section.id }}_{{ option.name | remove: ' ' }}"
+              class="
+                {% if option.name == 'Color' or option.name == 'color' %}arcolor_{{ value }} arColrOption__selector{% else %}normalSelector{% endif %}
+                {% if forloop.first %}activeVar_sp{{ section.id }}{% endif %}
+                prvar arVar_{{ section.id }}_{{product.id}}_{{ option.name | remove: ' ' }}
+              "
+              data-id="{{- variant.id -}}"
+              data-value="{{- value | remove: ' ' -}}"
+            >
+              {% if option.name == 'Color' or option.name == 'color' %}
+              <span class="arVarcolor_border arcoloredBorder_{{ value }}">
+                
+              </span>
+              {% endif %}
+              <span {% if option.name == 'Color' or option.name == 'color' %}class="colorBg"{% endif %}>
+                {{ value }}
+              </span>
+            </button>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+
+  <div class="arVariantsComplete arVars_{{ product.id }}_{{ section.id }}" style="display:none;">
+    {% for variant in product.variants %}
+      <button
+        type="button"
+        data-id="{{ variant.id }}"
+        data-img="ar{{- product.id -}}{{- variant.featured_media.id -}}"
+        data-value="{{ variant.title }}"
+        data-compare="{{ variant.compare_at_price | money_without_trailing_zeros }}"
+        data-current="{{ variant.price| money_without_trailing_zeros }}"
+      >
+        {{ variant.title }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <button type="button" id="value{{ section.id }}{{product.id}}" style="display:none">Get Value</button>
+</div>
+<script>
+    {% for option in product.options_with_values %}
+      var option{{ forloop.index }}{{- option.name | remove: ' '-}}{{ product.id }} = "{{ option.values.first }}";
+    {% endfor %}
+
+    document.addEventListener('DOMContentLoaded', function() {
+      {% for option in product.options_with_values %}
+        document.querySelectorAll(".arVar_{{ section.id }}_{{product.id}}_{{ option.name | remove: ' ' }}").forEach(function(element) {
+          element.addEventListener('click', function() {
+            var ar{{- option.name | remove: ' ' -}}Value = this.getAttribute('data-value');
+            document.querySelectorAll('.arVar_{{ section.id }}_{{product.id}}_{{ option.name | remove: ' ' }}').forEach(function(el) {
+              el.classList.remove("activeVar_sp{{ section.id }}");
+            });
+            this.classList.add("activeVar_sp{{ section.id }}");
+            option{{ forloop.index }}{{ option.name | remove: ' ' }}{{ product.id }} = ar{{- option.name | remove: ' ' -}}Value;
+            
+            if (this.classList.contains('arColrOption__selector')) {
+              var crntColor = this.getAttribute('data-value');
+              document.querySelectorAll('.arFp_media').forEach(function(media) {
+                media.classList.toggle('arBlackBg');
+              });
+            }
+
+            document.getElementById("value{{ section.id }}{{product.id}}").click();
+          });
+        });
+      {% endfor %}
+    });
+
+    document.getElementById('value{{ section.id }}{{product.id}}').addEventListener('click', function() {
+      var valueee = {% for option in product.options_with_values %}
+                      option{{ forloop.index }}{{ option.name | remove: ' '}}{{ product.id }} {% if forloop.last %};{% else %}+ " / " +{% endif %}
+                    {% endfor %}
+
+      var buttons = document.querySelectorAll('.arVars_{{ product.id }}_{{ section.id }} button');
+    
+      // Loop through each button
+      buttons.forEach(function(button) {
+        // Get the data-value attribute of the current button
+        var buttonValue = button.getAttribute('data-value');
+
+        // Compare with the desired valueee
+        if (buttonValue === valueee) {
+          // If there is a match, get the data-id attribute
+          var dataId = button.getAttribute('data-id');
+          // You can do something with the data-id, for example, log it
+          console.log("Match found! data-id: " + dataId);
+          console.log(valueee);
+          var comparePrice = button.getAttribute('data-compare');
+          var currentPrice = button.getAttribute('data-current');
+          document.getElementById("spVarId_container_{{ section.id }}_{{ product.id }}").value = dataId;
+          var actionBtn = document.getElementById("arActionButton_{{ product.id }}_{{ section.id }}");
+          actionBtn.setAttribute("data-value", valueee);
+          // document.getElementById('compPrc_Atc{{ section.id }}{{ product.id }}').textContent = comparePrice;
+          document.getElementById('crntPrc_Atc{{ section.id }}{{ product.id }}').textContent = currentPrice;
+        }
+      });
+    });
+  // Modal Close Function
+  function closeModal(){
+    var modals = document.querySelectorAll('.arProduct_modal');
+  modals.forEach(function(modal) {
+    modal.style.display = 'none';
+  });
+  }
+  function triggerModal(button) {
+  var targetId = button.getAttribute('data-target');
+  var modal = document.getElementById(targetId);
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
+</script>

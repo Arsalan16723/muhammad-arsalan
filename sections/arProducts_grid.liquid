@@ -1,6 +1,5 @@
 {% assign gift = section.settings.product %}
 {% if gift != blank %}
-  {% assign giftProduct = true %}
   {% assign variant_id = gift.first_available_variant.id %}
 {% endif %}
 <section class="arProductGrid">
@@ -60,7 +59,7 @@
 <script>
 // Define the addItemToCart function
   var variantVal = {{ variant_id }};
-function addItemToCart(itemId, itemQuantity) {
+function addItemToCart(itemId, itemQuantity, targetElement) {
   let formData = {
     'items': [{
       id: itemId,
@@ -78,6 +77,9 @@ function addItemToCart(itemId, itemQuantity) {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+    if (targetElement) {
+      targetElement.click();
+    }
   })
   .catch(error => {
     console.error('Error:', error);
@@ -90,10 +92,9 @@ document.querySelectorAll('.arActionButton').forEach(button => {
     let dataValue = this.getAttribute('data-value');
     let dataTarget = this.getAttribute('data-target');
     let targetElement = document.querySelector('.' + dataTarget);
-    if (dataValue === "Black / M") {
-      // Call the addItemToCart function with your desired itemId and quantity
-      addItemToCart(variantVal, 1);
-      targetElement.click();
+    if (dataValue === "Black / M" && targetElement) {
+      // Call the addItemToCart function with your desired itemId, quantity, and targetElement
+      addItemToCart(variantVal, 1, targetElement);
     }
     else{
       targetElement.click();
